@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-links a');
     
-    // Navegación suave - CORREGIDO
+    // Navegación suave
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -31,7 +31,7 @@ function initializeNavigation() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
-            // console.log('Navegando a:', targetId); // Debug
+           
             
             if (targetSection) {
                 smoothScrollTo(targetSection);
@@ -44,9 +44,9 @@ function initializeNavigation() {
     const ctaButtons = document.querySelectorAll('.hero-ctas [data-section]');
     ctaButtons.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Dejar que el enlace haga el desplazamiento nativo (href="#..." + css scroll-behavior: smooth)
+            
             const id = this.getAttribute('data-section') || (this.getAttribute('href') || '').replace('#','');
-            // Sincronizar el activo del menú poco después del clic
+           
             setTimeout(() => {
                 const navLink = document.querySelector(`.nav-links a[href="#${id}"]`);
                 if (navLink) updateActiveLink(navLink);
@@ -280,7 +280,7 @@ function animateTimeline(section) {
     });
 }
 
-// TARJETAS DE INTERESES EXPANDIBLES - CORREGIDO COMPLETAMENTE
+// TARJETAS DE INTERESES EXPANDIBLES 
 function initializeInterestCards() {
     const interestCards = document.querySelectorAll('.interest-card');
 
@@ -380,12 +380,11 @@ function addHoverEffects() {
     });
 }
 
-// EFECTOS DE PARTÍCULAS
+
 function initializeParticleAnimations() {
     const heroParticles = document.querySelector('.hero-particles');
     if (!heroParticles) return;
     
-    // Crear partículas adicionales dinámicamente
     function createParticle() {
         const particle = document.createElement('div');
         particle.className = 'particle';
